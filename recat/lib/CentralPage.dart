@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:recat/InsidedContent.dart';
-import 'main.dart';
+import 'package:recat/drawer_CentralPage.dart';
+
 
 class CentralPage extends StatelessWidget {
 var controller = PageController(
@@ -9,10 +9,13 @@ var controller = PageController(
 );
 CentralPage({Key key}) : super(key: key);
 
+final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
 final agendarButon = Material(
 
   elevation: 10.0,
   borderRadius: BorderRadius.circular(30.0),
+
 
   color: Color(0xFF009E74),
   child: MaterialButton(
@@ -26,13 +29,88 @@ final agendarButon = Material(
             fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
   ),
 );
+final drawer = Drawer(
+  child: ListView(
+    children: <Widget>[
+      ListTile(
+        leading: Icon(Icons.notifications_active),
+        title: Text("Notificações"),
+        trailing: Icon(Icons.arrow_forward),
+        onTap: (){
+         // print("On Tap is fired");
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.lock),
+        title: Text("Privacidade"),
+        trailing: Icon(Icons.arrow_forward),
+        onTap: (){
+          // print("On Tap is fired");
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.info),
+        title: Text("Sobre"),
+        trailing: Icon(Icons.arrow_forward),
+        onTap: (){
+          // print("On Tap is fired");
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.help_center ),
+        title: Text("Ajuda"),
+        trailing: Icon(Icons.arrow_forward),
+        onTap: (){
+          // print("On Tap is fired");
+        },
+      ),
+      ListTile(
+        leading: Icon(Icons.sensor_door),
 
+        title: Text("Sair"),
+        trailing: Icon(Icons.arrow_forward),
+        onTap: (){
+          // print("On Tap is fired");
+        },
+      ),
+    ],
+  ),
+);
 
 
 
 @override
 Widget build(BuildContext context) {
   return Scaffold(
+    key: _scaffoldKey,
+    endDrawer: drawer,
+    appBar: AppBar(
+      leading: Builder(
+        builder: (BuildContext context) {
+          return IconButton(
+            icon: const Icon(Icons.menu, color: Color(0xff16613D)),
+            //onPressed: () => _scaffoldKey.currentState.openDrawer(),
+            //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+          );
+        },
+      ),
+      title: const Text('',
+          style: TextStyle(color: Color(0xff16613D), fontWeight: FontWeight.bold)
+      ),
+      elevation: 0,
+      backgroundColor: Colors.transparent,
+      actions: <Widget>[
+        IconButton(icon: Icon(Icons.settings, color: Color(0xff16613D)),
+          onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
+          // onPressed: () {
+          // Navigator.push(
+          // context,
+          // MaterialPageRoute(builder: (context) => editperfil()),
+          //);},
+        ),
+      ],
+    ),
+
     body:  Container(
       child: Align(
       alignment: Alignment.bottomCenter,
@@ -60,7 +138,7 @@ Widget build(BuildContext context) {
 
 
       Container(
-        //alignment: Alignment.topRight,
+        alignment: Alignment.centerLeft,
         margin: EdgeInsets.symmetric(vertical: 20.0),
         height: 100.0,
         width: 500,
