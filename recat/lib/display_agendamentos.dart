@@ -1,16 +1,30 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/agenda_morador.dart';
 
 class AgendamentoLista extends StatelessWidget {
   final Coletas agenda;
   AgendamentoLista({Key key, this.agenda}) : super(key: key);
 
   var controller = PageController(
-    viewportFraction: 1 / 2,
+    viewportFraction: 0.8,
     initialPage: 0,
 
   );
+
+
+MaterialColor checkStatusColeta (String statusColeta) {
+  if (statusColeta == 'agendada') {
+  return Colors.blue;
+  }
+  else if (statusColeta == 'feita') {
+    return Colors.green;
+  }
+  else return Colors.red;
+}
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -25,23 +39,96 @@ class AgendamentoLista extends StatelessWidget {
       scrollDirection: Axis.horizontal,
       itemCount: agenda == null ? 0 : agenda.coletando.length, // Can be null
         itemBuilder: (BuildContext context, int index) {
-          return new Container(
-              margin: EdgeInsets.symmetric(horizontal: 10.0),
+          return new GestureDetector(
+              onLongPress : (){
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => agenda_morador()),
+                );
+                },
+          child: Container(
+              width: 200.0,
+              height: 200.0,
+              //margin: EdgeInsets.symmetric(horizontal: 10.0),
               decoration: BoxDecoration(
-                color: Color(0xffb714365),
+                //color: Color(0xffb714365),
+                color: Colors.white,
 
                 border: Border.all(
-                  color: Color(0xffb714365),
-                  width: 8,
+                  color: Colors.black,
+                  width: 2,
                 ),
                 borderRadius: BorderRadius.circular(12),
               ),
-              child: Center(
-                  child: Text(agenda.coletando[index].enderecoColeta,
-                    textAlign: TextAlign.center,
-                    style: TextStyle(fontSize: 20.0, color: Colors.white),)
+              child: Wrap(
+                children: [
+                  Align(
+                  alignment: Alignment.topRight,
+                  child:
+                  Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                   Container(
+                    width: 100.0,
+                    height: 50.0,
+                    decoration: BoxDecoration(
+                      color: checkStatusColeta(agenda.coletando[index].statusColeta),
+                      border: Border.all(
+                        color: Colors.white,
+                        width: 8,
+                      ),
+
+                      borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
+                    ),
+
+                      child:  Text('Coleta ' + agenda.coletando[index].statusColeta,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20.0, color: Colors.white),)
+
+                      )
+                  ]
               )
-          );
+              ),
+                  Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        //decoration: BoxDecoration(border: Border.all(color: Colors.blue, width: 5)),
+                        child: Image.asset(
+                          'imagens/icone_localizacao.png',
+                          fit: BoxFit.cover,
+                          height: 50, // set your height
+                          width: 70, // and width here
+                        ),
+                      ),
+                      Text('Endereço: ' + agenda.coletando[index].enderecoColeta,
+                        textAlign: TextAlign.center,
+                        style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                    ],
+                  ),
+                  Container(
+                      width: 500.0,
+                      height: 30.0,
+                      child:   Text('  Dia da Coleta: ' + agenda.coletando[index].diaColeta,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                  ),
+                  Container(
+                      width: 500.0,
+                      height: 30.0,
+                      child:   Text('  Cooperativa: ' + agenda.coletando[index].cooperativa,
+                        textAlign: TextAlign.left,
+                        style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                  ),
+
+
+                ],
+                )
+                )
+              );
+
+
+         // );
 
         }
           //onTap: () {
