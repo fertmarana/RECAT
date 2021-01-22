@@ -1,15 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:recat/drawer_CentralPage.dart';
+import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/display_agendamentos.dart';
+import 'dart:convert';
+import 'package:flutter/services.dart' show rootBundle;
+import 'dart:async';
 
 
-class CentralPage extends StatelessWidget {
+
+class CentralPage extends StatefulWidget {
+_CentralPage createState() => _CentralPage();
+}
+
+class _CentralPage extends State<CentralPage>{
+
 var controller = PageController(
   viewportFraction: 1 / 2,
   initialPage: 0,
 );
-CentralPage({Key key}) : super(key: key);
+//CentralPage({Key key}) : super(key: key);
 
 final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+
+  Coletas parseJosn(String response) {
+    if(response==null){
+      return null;
+    }
+    Map<String, dynamic> jsonMap = json.decode(response);
+
+    Coletas temp = Coletas.fromJson(jsonMap);
+    return temp;
+
+  }
 
 final agendarButon = Material(
 
@@ -85,15 +107,7 @@ Widget build(BuildContext context) {
     key: _scaffoldKey,
     endDrawer: drawer,
     appBar: AppBar(
-      leading: Builder(
-        builder: (BuildContext context) {
-          return IconButton(
-            icon: const Icon(Icons.menu, color: Color(0xff16613D)),
-            //onPressed: () => _scaffoldKey.currentState.openDrawer(),
-            //tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-          );
-        },
-      ),
+
       title: const Text('',
           style: TextStyle(color: Color(0xff16613D), fontWeight: FontWeight.bold)
       ),
@@ -139,12 +153,13 @@ Widget build(BuildContext context) {
 
       Container(
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.symmetric(vertical: 20.0),
+        margin: EdgeInsets.symmetric(vertical: 10.0),
         height: 100.0,
         width: 500,
         child: PageView(
           controller: controller,
           scrollDirection: Axis.horizontal,
+
           children: <Widget>[
             InkWell(
               child: Container(
@@ -287,147 +302,20 @@ Widget build(BuildContext context) {
             ),
           ),
           Container(
-            //alignment: Alignment.topRight,
-            margin: EdgeInsets.symmetric(vertical: 20.0),
-            height: 200.0,
-            width: 700,
-            child: PageView(
-              controller: controller,
-              scrollDirection: Axis.horizontal,
-              children: <Widget>[
-                InkWell(
-                  child: Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10.0),
-                      decoration: BoxDecoration(
-                        color: Color(0xffb714365),
+            child: new Center(
+              // Use future builder and DefaultAssetBundle to load the local JSON file
+              child: new FutureBuilder(
+                  future: //loadAgendamento(),
+                  DefaultAssetBundle.of(context).loadString('assets/Agendamento.json'),
+                  builder: (context, snapshot) {
+                    print(snapshot);
 
-                        border: Border.all(
-                          color: Color(0xffb714365),
-                          width: 8,
-                        ),
-                        borderRadius: BorderRadius.circular(12),
-                      ),
-                      child: Center(
-                          child: Text('Como separar o lixo',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                      )
-                  ),
-                  //onTap: () {
-                  // Navigator.push(
-                  //   context,
-                  //  MaterialPageRoute(builder: (context) => Sugestions())
-                  //);
-                  //},
-                ),
+                    var data = parseJosn(snapshot.data.toString());
 
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xffb714365),
-
-                      border: Border.all(
-                        color: Color(0xffb714365),
-                        width: 8,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-
-                        child: Text('Onde separar o lixo',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                    )
-                ),
-
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xffb714365),
-
-                      border: Border.all(
-                        color: Color(0xffb714365),
-                        width: 8,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-
-                        child: Text('',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                    )
-
-
-                ),
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xffb714365),
-
-                      border: Border.all(
-                        color: Color(0xffb714365),
-                        width: 8,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-
-                        child: Text('Zamioculca',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                    )
-
-
-                ),
-
-
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xffb714365),
-
-                      border: Border.all(
-                        color: Color(0xffb714365),
-                        width: 8,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-
-                        child: Text('Girassol',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                    )
-
-
-                ),
-
-                Container(
-                    margin: EdgeInsets.symmetric(horizontal: 10.0),
-                    decoration: BoxDecoration(
-                      color: Color(0xffb714365),
-                      border: Border.all(
-                        color: Color(0xffb714365),
-                        width: 8,
-                      ),
-                      borderRadius: BorderRadius.circular(12),
-                    ),
-                    child: Center(
-
-                        child: Text('Anturio',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0,color: Colors.white),)
-                    )
-
-
-                ),
-
-              ],
+                    return AgendamentoLista(agenda: data);
+                  }),
             ),
           )
-
-
         ],
       ),
 

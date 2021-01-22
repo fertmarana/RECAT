@@ -1,0 +1,24 @@
+{
+  "agendamentos":
+[
+      {
+        "id": "9239292",
+        "moradorNome": "Suzanna",
+        "enderecoColeta": "Rua Doze",
+        "cooperativa": "Cooperativa Recicla",
+        "diaColeta": "11/02/2021",
+        "statusPedido": "aprovado",
+        "statusColeta": "feita"
+      },
+      {
+        "id": "9000000",
+        "moradorNome": "ANAAAA",
+        "enderecoColeta": "Rua Doze",
+        "cooperativa": "Cooperativa Recicla",
+        "diaColeta": "11/02/2021",
+        "statusPedido": "aprovado",
+        "statusColeta": "feita"
+      }
+ ]
+
+ }

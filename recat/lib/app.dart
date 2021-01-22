@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recat/teste_future_apagardepois.dart';
 import 'tabItem.dart';
 import 'bottomNavigation.dart';
 import 'screens.dart';
@@ -30,7 +31,7 @@ class AppState extends State<App> {
     TabItem(
       tabName: "Minha Conta",
       icon: Icons.person,
-      page: SettingsScreen(),
+      page: teste_future(),
     ),
   ];
 
