@@ -4,21 +4,33 @@
       {
         "id": "9239292",
         "moradorNome": "Suzanna",
-        "enderecoColeta": "Rua Doze",
+        "enderecoColeta": "Avenida Getúlio Vargas 2-18",
         "cooperativa": "Cooperativa Recicla",
         "diaColeta": "11/02/2021",
+        "tipoLixo": ["Plástico, Papel, Eletrônico"],
         "statusPedido": "aprovado",
         "statusColeta": "agendada"
       },
       {
         "id": "9000000",
         "moradorNome": "ANAAAA",
-        "enderecoColeta": "Rua Doze",
+        "enderecoColeta": "Avenida Getúlio Vargas 2-18",
         "cooperativa": "Cooperativa Recicla",
         "diaColeta": "11/02/2021",
+        "tipoLixo": ["Plástico, Papel, Eletrônico"],
         "statusPedido": "aprovado",
         "statusColeta": "feita"
-      }
+      },
+  {
+    "id": "9000000",
+    "moradorNome": "ANAAAA",
+    "enderecoColeta": "Rua Doze",
+    "cooperativa": "Cooperativa Recicla",
+    "diaColeta": "11/02/2021",
+    "tipoLixo": ["Plástico, Papel, Eletrônico"],
+    "statusPedido": "aprovado",
+    "statusColeta": "cancelada"
+  }
  ]
 
  }

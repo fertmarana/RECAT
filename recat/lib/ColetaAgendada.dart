@@ -26,12 +26,13 @@ class ColetaAgendada {
   final String enderecoColeta;
   final String cooperativa;
   final String diaColeta;
+  final List tipoLixo;
   final String statusPedido;
   final String statusColeta;
 
 
 
-  ColetaAgendada({this.id, this.moradorNome, this.enderecoColeta, this.cooperativa,this.diaColeta,this.statusPedido, this.statusColeta});
+  ColetaAgendada({this.id, this.moradorNome, this.enderecoColeta, this.cooperativa,this.diaColeta,this.tipoLixo,this.statusPedido, this.statusColeta});
 
   factory ColetaAgendada.fromJson(Map<String, dynamic> json){
     return ColetaAgendada(
@@ -40,6 +41,7 @@ class ColetaAgendada {
       enderecoColeta: json['enderecoColeta'] as String,
       cooperativa: json['cooperativa'] as String,
       diaColeta: json['diaColeta'] as String,
+      tipoLixo: json['tipoLixo'] as List,
       statusPedido: json['statusPedido'] as String,
       statusColeta: json['statusColeta'] as String,
     );

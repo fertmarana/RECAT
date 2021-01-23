@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recat/teste_future_apagardepois.dart';
 import 'tabItem.dart';
 import 'bottomNavigation.dart';
 import 'screens.dart';
 import 'package:recat/CentralPage.dart';
 import 'package:recat/agenda_morador.dart';
-
+import 'package:recat/minhaConta_morador.dart';
 class App extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AppState();
@@ -31,7 +30,7 @@ class AppState extends State<App> {
     TabItem(
       tabName: "Minha Conta",
       icon: Icons.person,
-      page: teste_future(),
+      page: minhaConta_morador(),
     ),
   ];
 
