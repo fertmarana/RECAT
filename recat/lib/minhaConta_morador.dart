@@ -18,7 +18,7 @@ class minhaConta_morador extends StatelessWidget {
                 padding: const EdgeInsets.all(5.0),
                 child: Wrap(
 
-                    runSpacing: 2.0,
+                    runSpacing: 20.0,
                     children: [
                       Container(
                         alignment: Alignment.center,
@@ -55,24 +55,50 @@ class minhaConta_morador extends StatelessWidget {
 
 
                       Container(
-                          alignment: Alignment.center,
-                          padding: const EdgeInsets.fromLTRB(10, 10, 10, 10),
+                          alignment: Alignment.topCenter,
+                          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                           decoration: BoxDecoration(color: Colors.white,
 
                               border: Border.all(
                                 color: Colors.black,
                                 width: 0.5,
                               ),
+
+                            borderRadius: BorderRadius.circular(12),
                           ),
                           width: 500.0,
-                          height: 80.0,
+                          height: 250.0,
                           child:  ListView(
+                              physics: const AlwaysScrollableScrollPhysics(),
                                 children: const <Widget>[
 
                                   ListTile(
-                                  title: Text('Meus Endereços',
-                                    textAlign: TextAlign.start,
-                                    style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                                    title: Text('Meus Endereços',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                                    //trailing: Icon(Icons.arrow_forward),
+                                    //onTap: (){},
+
+                                  ),
+                                  ListTile(
+                                    title: Text('Meu Histórico de Coleta',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                                  ),
+                                  ListTile(
+                                    title: Text('Estatísticas',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                                  ),
+                                  ListTile(
+                                    title: Text('Configurações',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20.0, color: Colors.black)),
+                                  ),
+                                  ListTile(
+                                    title: Text('Sair',
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(fontSize: 20.0, color: Colors.black)),
                                   ),
 
 
