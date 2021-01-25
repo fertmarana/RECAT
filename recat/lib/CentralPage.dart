@@ -36,7 +36,6 @@ final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
 final agendarButon = Material(
 
-  elevation: 10.0,
   borderRadius: BorderRadius.circular(30.0),
 
 
