@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recat/app.dart';
 import 'package:recat/app_usuario_catadores/app_catadores.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'app.dart';
@@ -14,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: App_catadores(),
+      home: App(),
     );
   }
 }

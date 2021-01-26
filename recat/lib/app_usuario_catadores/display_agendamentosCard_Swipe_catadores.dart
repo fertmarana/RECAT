@@ -15,6 +15,9 @@ class _display_CardSwipe extends State<display_CardSwipe> {
   int len;
   List<Widget> cardList;
   Coletas ascoletas_carregadas ;
+  AnimationController _controller;
+  Animation<Offset> _offsetAnimation;
+
   void _removeCard(index) {
     setState(() {
       cardList.removeAt(index);
@@ -28,6 +31,7 @@ class _display_CardSwipe extends State<display_CardSwipe> {
     ascoletas_carregadas = widget.ascoletas;
     len = widget.ascoletas.coletando.length;
    // print(agenda_coletas);
+
 
     super.initState();
   }
@@ -150,6 +154,9 @@ class _display_CardSwipe extends State<display_CardSwipe> {
       )
     );
   }
+
+
+
 
 }
 

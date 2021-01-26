@@ -31,7 +31,7 @@ MaterialColor checkStatusColeta (String statusColeta) {
 
     return new Container(
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.symmetric(vertical: 10.0),
+        margin: EdgeInsets.symmetric(vertical: 20.0),
     height: 200.0,
     width: 800,
     child: PageView.builder(

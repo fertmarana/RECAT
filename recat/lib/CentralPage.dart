@@ -3,6 +3,7 @@ import 'package:recat/drawer_CentralPage.dart';
 import 'package:recat/ColetaAgendada.dart';
 import 'package:recat/display_agendamentos.dart';
 import 'package:recat/PageView_dicas.dart';
+import 'package:recat/AgendarColeta_Pag1.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
@@ -33,7 +34,7 @@ final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return temp;
 
   }
-
+/*
 final agendarButon = Material(
 
   borderRadius: BorderRadius.circular(30.0),
@@ -44,13 +45,20 @@ final agendarButon = Material(
 
     minWidth: 200.0,
     padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    onPressed: () {},
+    onPressed: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => CentralPage()),
+        );
+    },
     child: Text("Agendar Coleta",
         textAlign: TextAlign.center,
         style: TextStyle(
             fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
   ),
 );
+
+ */
 final drawer = Drawer(
   child: ListView(
     children: <Widget>[
@@ -127,9 +135,9 @@ Widget build(BuildContext context) {
 
     body:  Container(
       child: Align(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.topCenter,
       child: Wrap(
-        runSpacing: 8.0,
+        runSpacing: 6.0,
         direction: Axis.horizontal,
         children: [
           SizedBox(height: 10.0),
@@ -138,7 +146,28 @@ Widget build(BuildContext context) {
           Container(
               child: Align(
                 alignment: Alignment.center,
-                child: agendarButon,
+                child: Material(
+
+                  borderRadius: BorderRadius.circular(30.0),
+
+
+                  color: Color(0xFF009E74),
+                  child: MaterialButton(
+
+                    minWidth: 200.0,
+                    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => AgendarColeta_Pag1()),
+                      );
+                    },
+                    child: Text("Agendar Coleta",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                  ),
+                ),
 
               )
           ),
