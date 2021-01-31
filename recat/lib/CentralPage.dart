@@ -16,6 +16,13 @@ _CentralPage createState() => _CentralPage();
 
 class _CentralPage extends State<CentralPage>{
 
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
+
 var controller = PageController(
   viewportFraction: 1 ,
   initialPage: 0,
@@ -34,31 +41,7 @@ final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
     return temp;
 
   }
-/*
-final agendarButon = Material(
 
-  borderRadius: BorderRadius.circular(30.0),
-
-
-  color: Color(0xFF009E74),
-  child: MaterialButton(
-
-    minWidth: 200.0,
-    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    onPressed: () {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => CentralPage()),
-        );
-    },
-    child: Text("Agendar Coleta",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
-  ),
-);
-
- */
 final drawer = Drawer(
   child: ListView(
     children: <Widget>[
@@ -159,6 +142,7 @@ Widget build(BuildContext context) {
                     onPressed: () {
                       Navigator.push(
                         context,
+
                         MaterialPageRoute(builder: (context) => AgendarColeta_Pag1()),
                       );
                     },

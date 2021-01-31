@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "663696013920",
+    "project_id": "recat-427f6",
+    "storage_bucket": "recat-427f6.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:663696013920:android:a8fb26f5d7885bffd3e105",
+        "android_client_info": {
+          "package_name": "com.recat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "663696013920-97ffvtgb308gh7qm6b5mlu18q6keq66c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_inxF1QyYoQ3b812aaUVCj-PY5KX8rsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "663696013920-97ffvtgb308gh7qm6b5mlu18q6keq66c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

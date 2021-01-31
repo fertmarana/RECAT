@@ -1,5 +1,8 @@
+import 'package:firebase_database/firebase_database.dart';
+
 class Coletas {
   final List<ColetaAgendada> coletando;
+  DatabaseReference _id;
 
   Coletas({
     this.coletando,
@@ -8,7 +11,6 @@ class Coletas {
   factory Coletas.fromJson(Map<String, dynamic> parsedJson) {
 
     var list = parsedJson['agendamentos'] as List;
-    print(list.runtimeType);
     List<ColetaAgendada> coletasList = list.map((i) => ColetaAgendada.fromJson(i)).toList();
 
     //List<ColetaAgendada> col = new List<ColetaAgendada>();
@@ -17,6 +19,14 @@ class Coletas {
       coletando: coletasList
     );
   }
+  Map<String, dynamic> toJson() {
+        List<Map<String,dynamic>> aaagenda = coletando.map((e) => e.toJson()).toList();
+        return {'agendamentos': aaagenda };
+   }
+
+   void setId(DatabaseReference id_data){
+    this._id = id_data;
+   }
 
 }
 
@@ -26,13 +36,14 @@ class ColetaAgendada {
   final String enderecoColeta;
   final String cooperativa;
   final String diaColeta;
+  final String horaColeta;
   final List tipoLixo;
   final String statusPedido;
   final String statusColeta;
 
 
 
-  ColetaAgendada({this.id, this.moradorNome, this.enderecoColeta, this.cooperativa,this.diaColeta,this.tipoLixo,this.statusPedido, this.statusColeta});
+  ColetaAgendada({this.id, this.moradorNome, this.enderecoColeta, this.cooperativa,this.diaColeta,this.horaColeta,this.tipoLixo,this.statusPedido, this.statusColeta});
 
   factory ColetaAgendada.fromJson(Map<String, dynamic> json){
     return ColetaAgendada(
@@ -41,10 +52,24 @@ class ColetaAgendada {
       enderecoColeta: json['enderecoColeta'] as String,
       cooperativa: json['cooperativa'] as String,
       diaColeta: json['diaColeta'] as String,
+      horaColeta: json['horaColeta'] as String,
       tipoLixo: json['tipoLixo'] as List,
       statusPedido: json['statusPedido'] as String,
       statusColeta: json['statusColeta'] as String,
     );
   }
+
+  Map<String, dynamic> toJson() =>
+      {
+        'id': id,
+        'moradorNome': moradorNome,
+        'enderecoColeta': enderecoColeta,
+        'cooperativa': cooperativa,
+        'diaColeta' : diaColeta,
+        'horaColeta' : horaColeta,
+        'tipoLixo' : tipoLixo,
+        'statusPedido': statusPedido,
+        'statusColeta' : statusColeta,
+      };
 
 }

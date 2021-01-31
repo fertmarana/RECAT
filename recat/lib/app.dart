@@ -3,8 +3,10 @@ import 'tabItem.dart';
 import 'bottomNavigation.dart';
 import 'screens.dart';
 import 'package:recat/CentralPage.dart';
+import 'package:recat/apagardepois.dart';
 import 'package:recat/agenda_morador.dart';
 import 'package:recat/minhaConta_morador.dart';
+import 'package:recat/test_writeJson_apagardepois.dart';
 class App extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AppState();
@@ -25,7 +27,9 @@ class AppState extends State<App> {
     TabItem(
       tabName: "Minha Agenda",
       icon: Icons.calendar_today,
-      page: agenda_morador(),
+      page: //TestWrite(),
+      //writeJsonfile(),
+      agenda_morador(),
     ),
     TabItem(
       tabName: "Minha Conta",
