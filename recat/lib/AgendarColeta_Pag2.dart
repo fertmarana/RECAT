@@ -196,7 +196,8 @@ class _SelectedCheckboxCooperativas extends State<SelectedCheckboxCooperativas> 
   void initState() {
     // TODO: implement initState
     mainList.add(Cooperativas(name : "Cooperativa Recicla", isSelected: false));
-    mainList.add(Cooperativas(name : "Cooperativa Lixo Reciclável", isSelected: false));
+    //mainList.add(Cooperativas(name : "Cooperativa Lixo Reciclável", isSelected: false));
+    mainList.add(Cooperativas(name : "João Barbosa", isSelected: false));
 
     super.initState();
   }

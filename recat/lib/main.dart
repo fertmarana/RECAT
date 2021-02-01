@@ -9,7 +9,7 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp( 
       title: 'Bottom Navigation Bar',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

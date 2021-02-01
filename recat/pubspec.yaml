@@ -66,6 +66,8 @@ flutter:
      - imagens/
      - imagens/icone_localizacao.png
      - assets/Agendamento.json
+     - assets/AgendamentosdoDia.json
+     - assets/ColetasdoDia.json
      - assets/demoTextFile.json
   #   - images/a_dot_ham.jpeg
 

@@ -4,6 +4,8 @@ import 'package:recat/app_usuario_catadores/CentralPage_catadores.dart';
 import 'package:recat/agenda_morador.dart';
 import 'package:recat/app_usuario_catadores/tabItem_catadores.dart';
 import 'package:recat/minhaConta_morador.dart';
+import 'package:recat/app_usuario_catadores/agendamentosDodia.dart';
+
 class App_catadores extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AppState();
@@ -20,6 +22,11 @@ class AppState extends State<App_catadores> {
       tabName: "Início",
       icon: Icons.home,
       page: CentralPage_catadores(),
+    ),
+    TabItem(
+      tabName: "Pedidos de Coleta",
+      icon: Icons.inbox   ,
+      page: agendamentosDia_catadores(),
     ),
     TabItem(
       tabName: "Locais de Coleta",

@@ -14,6 +14,8 @@ class display_CardSwipe extends StatefulWidget {
 class _display_CardSwipe extends State<display_CardSwipe> {
   int len;
   List<Widget> cardList;
+  List<String> statusPedidoAtual = new List();
+  List<MaterialColor> backgroundColor = new List();
   Coletas ascoletas_carregadas ;
   AnimationController _controller;
   Animation<Offset> _offsetAnimation;
@@ -28,13 +30,30 @@ class _display_CardSwipe extends State<display_CardSwipe> {
   @override
   void initState() {
     // TODO: implement initState
+
     ascoletas_carregadas = widget.ascoletas;
     len = widget.ascoletas.coletando.length;
+    for(int i = 0; i<len; i++){
+      backgroundColor.add( Colors.grey);
+      statusPedidoAtual.add("em espera");
+    }
    // print(agenda_coletas);
 
 
     super.initState();
   }
+
+
+  MaterialColor checkStatusPedido (String statusPedido) {
+    if (statusPedido == 'em espera') {
+      return Colors.grey;
+    }
+    else if (statusPedido == 'aprovado') {
+      return Colors.green;
+    }
+    else return Colors.red;
+  }
+
 
 
 
@@ -51,8 +70,8 @@ class _display_CardSwipe extends State<display_CardSwipe> {
          totalNum: ascoletas_carregadas.coletando.length,
          stackNum: 3,
          swipeEdge: 4.0,
-         maxWidth: MediaQuery.of(context).size.width * 0.9,
-         maxHeight: MediaQuery.of(context).size.width * 0.9,
+         maxWidth: MediaQuery.of(context).size.width * 1.1,
+         maxHeight: MediaQuery.of(context).size.width * 1.1,
          minWidth: MediaQuery.of(context).size.width * 0.8,
          minHeight: MediaQuery.of(context).size.width * 0.8,
          cardBuilder: (context, index) {
@@ -65,7 +84,7 @@ class _display_CardSwipe extends State<display_CardSwipe> {
                  elevation: 12,
                  color: Colors.white,
                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                 child: Container( width: 300, height: 400,
+                 child: Container( width: 400, height: 500,
                    child:  Wrap(
                      children: [
                        Align(
@@ -77,12 +96,12 @@ class _display_CardSwipe extends State<display_CardSwipe> {
                                      width: 100.0,
                                      height: 50.0,
                                      decoration: BoxDecoration(
-                                       color: Colors.blue,
+                                       color: backgroundColor[index],
                                        border: Border.all(color: Colors.white, width: 8,),
                                        borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                                      ),
 
-                                     child:  Text('Coleta ' + ascoletas_carregadas.coletando[index].statusColeta,
+                                     child:  Text('Pedido ' + statusPedidoAtual[index],
                                        textAlign: TextAlign.center,
                                        style: TextStyle(fontSize: 20.0, color: Colors.white),)
                                  )
@@ -115,9 +134,65 @@ class _display_CardSwipe extends State<display_CardSwipe> {
                        Container(
                            width: 500.0,
                            height: 60.0,
-                           child:   Text('  Cooperativa: ' + ascoletas_carregadas.coletando[index].cooperativa,
+                           child:   Text('  Pedido por: ' + ascoletas_carregadas.coletando[index].moradorNome,
                              textAlign: TextAlign.left,
                              style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                       ),
+                       Container(
+                           child: Align(
+                             alignment: Alignment.center,
+                             child: Material(
+
+                               borderRadius: BorderRadius.circular(30.0),
+
+
+                               color: Color(0xFF009E74),
+                               child: MaterialButton(
+
+                                 minWidth: 200.0,
+                                 padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                                 onPressed: () {
+                                   setState(() {
+                                     backgroundColor[index] = Colors.green;
+                                     statusPedidoAtual[index] = "aceito!";
+                                   });
+                                 },
+                                 child: Text("Aceitar Pedido",
+                                     textAlign: TextAlign.center,
+                                     style: TextStyle(
+                                         fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                               ),
+                             ),
+
+                           )
+                       ),
+                       Container(
+                           child: Align(
+                             alignment: Alignment.center,
+                             child: Material(
+
+                               borderRadius: BorderRadius.circular(30.0),
+
+
+                               color: Colors.red,
+                               child: MaterialButton(
+
+                                 minWidth: 200.0,
+                                 padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                                 onPressed: () {
+                                   setState(() {
+                                     backgroundColor[index] = Colors.red;
+                                     statusPedidoAtual[index] = "recusado!";
+                                   });
+                                 },
+                                 child: Text("Recusar Pedido",
+                                     textAlign: TextAlign.center,
+                                     style: TextStyle(
+                                         fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                               ),
+                             ),
+
+                           )
                        ),
 
 

@@ -32,9 +32,9 @@ MaterialColor checkStatusColeta (String statusColeta) {
     return new Container(
         alignment: Alignment.centerLeft,
         margin: EdgeInsets.symmetric(vertical: 20.0),
-    height: 200.0,
-    width: 800,
-    child: PageView.builder(
+      height: 200.0,
+      width: 800,
+      child: PageView.builder(
       controller: controller,
       scrollDirection: Axis.horizontal,
       itemCount: agenda == null ? 0 : agenda.coletando.length, // Can be null

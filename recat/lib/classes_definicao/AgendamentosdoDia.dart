@@ -1,8 +1,8 @@
-import 'package:firebase_database/firebase_database.dart';
+
 
 class Coletas {
   final List<ColetaAgendada> coletando;
-  DatabaseReference _id;
+
 
   Coletas({
     this.coletando,
@@ -16,30 +16,25 @@ class Coletas {
     //List<ColetaAgendada> col = new List<ColetaAgendada>();
     //col = parsedJson.map((i)=>ColetaAgendada.fromJson(i)).toList();
     return new Coletas(
-      coletando: coletasList
+        coletando: coletasList
     );
   }
   Map<String, dynamic> toJson() {
-        List<Map<String,dynamic>> aaagenda = coletando.map((e) => e.toJson()).toList();
-        return {'agendamentos': aaagenda };
-   }
-
-   void setId(DatabaseReference id_data){
-    this._id = id_data;
-   }
-
+    List<Map<String,dynamic>> aaagenda = coletando.map((e) => e.toJson()).toList();
+    return {'agendamentos': aaagenda };
+  }
 }
 
 class ColetaAgendada {
-  String id;
-  String moradorNome;
-  String enderecoColeta;
-  String cooperativa;
-  String diaColeta;
-  String horaColeta;
-  List tipoLixo;
-  String statusPedido;
-  String statusColeta;
+  final String id;
+  final String moradorNome;
+  final String enderecoColeta;
+  final String cooperativa;
+  final String diaColeta;
+  final String horaColeta;
+  final List tipoLixo;
+  final String statusPedido;
+  final String statusColeta;
 
 
 
@@ -58,11 +53,6 @@ class ColetaAgendada {
       statusColeta: json['statusColeta'] as String,
     );
   }
-
-  void set pedido(String currentPedido) {
-    this.statusPedido = currentPedido;
-  }
-
 
   Map<String, dynamic> toJson() =>
       {
