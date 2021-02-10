@@ -79,12 +79,13 @@ class _display_CardSwipe extends State<display_CardSwipe> {
            return Card(
              child: Container(
                color: Colors.white,
+               alignment: Alignment(-0.9,0.0),
 
                child: Card(
                  elevation: 12,
                  color: Colors.white,
                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-                 child: Container( width: 400, height: 500,
+                 child: Container( width: 400, height: 700,
                    child:  Wrap(
                      children: [
                        Align(
@@ -128,6 +129,13 @@ class _display_CardSwipe extends State<display_CardSwipe> {
                            width: 500.0,
                            height: 30.0,
                            child:   Text('  Dia da Coleta: ' + ascoletas_carregadas.coletando[index].diaColeta,
+                             textAlign: TextAlign.left,
+                             style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                       ),
+                       Container(
+                           width: 500.0,
+                           height: 60.0,
+                           child:   Text('  Pode ser coletado: ' + ascoletas_carregadas.coletando[index].horaColeta,
                              textAlign: TextAlign.left,
                              style: TextStyle(fontSize: 20.0, color: Colors.black),)
                        ),

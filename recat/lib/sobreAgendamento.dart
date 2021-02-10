@@ -171,14 +171,6 @@ String concatenateString(List<dynamic> lista){
 
                 ],
               ),
-            Container(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                width: 500.0,
-                height: 50.0,
-                child:   Text('Morador: ' + agendas.moradorNome,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20.0, color: Colors.black),)
-            ),
               Container(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: 500.0,
@@ -187,6 +179,14 @@ String concatenateString(List<dynamic> lista){
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 20.0, color: Colors.black),)
               ),
+            Container(
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                width: 500.0,
+                height: 50.0,
+                child:   Text('Horário: ' + agendas.horaColeta,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 20.0, color: Colors.black),)
+            ),
               Container(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: 500.0,

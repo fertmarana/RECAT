@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recat/ColetaAgendada.dart';
 import 'dart:convert';
 import 'package:recat/app_usuario_catadores/display_agendamentosCard_Swipe_catadores.dart';
+import 'package:recat/CatadorouMorador.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
@@ -97,6 +98,8 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           title: Text("Sair"),
           trailing: Icon(Icons.arrow_forward),
           onTap: () {
+            builder: (_) => CatadorOuMorador();
+
             // print("On Tap is fired");
           },
         ),

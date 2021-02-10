@@ -49,24 +49,20 @@ class _agenda_morador extends State<agenda_morador> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
+        appBar: AppBar(
+          elevation: 0,
+         backgroundColor: Colors.transparent,
+          title: const Text('',
+              style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+          ),
+      ),
+      body: Container(
+        alignment: Alignment(1.0,1.0),
         child: Column(
         children: <Widget>[
           TableCalendar(
               locale: 'pt_br',
               calendarController: _controller,
-          ),
-          RaisedButton(
-            onPressed: _addEvent,
-            child: Text('Add event'),
-          ),
-          RaisedButton(
-            onPressed: () => print(_controller.visibleEvents[_controller.selectedDay]),
-            child: Text('Print selected events'),
-          ),
-          RaisedButton(
-            onPressed: () => print(_events),
-            child: Text('Print all events'),
           ),
         ],
         )

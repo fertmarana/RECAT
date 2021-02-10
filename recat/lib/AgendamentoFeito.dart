@@ -57,7 +57,7 @@ class AgendamentoFeito extends StatelessWidget {
                               padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                               width: 500.0,
                               height: 50.0,
-                              child:   Text('Coleta Agendada! \n'
+                              child:   Text('Pedido feito! \n'
                                   ,
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 40.0, color: Colors.black),)
@@ -68,7 +68,7 @@ class AgendamentoFeito extends StatelessWidget {
                               width: 500.0,
                               height: 50.0,
                               child:   Text(
-                                  'Enviamos uma notificação a cooperativa avisando sobre seu pedido!',
+                                  'Enviamos uma notificação ao catador avisando sobre seu pedido!',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(fontSize: 20.0, color: Colors.black),)
                           ),
@@ -107,7 +107,7 @@ class AgendamentoFeito extends StatelessWidget {
                                       //  );
 
                                     },
-                                    child: Text("Quer tirar uma dúvida com a cooperativa?",
+                                    child: Text("Quer tirar uma dúvida com o catador?",
                                         textAlign: TextAlign.center,
                                         style: TextStyle(
                                             fontSize: 20.0,color: Colors.black)),

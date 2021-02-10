@@ -4,6 +4,7 @@ import 'package:recat/ColetaAgendada.dart';
 import 'package:recat/display_agendamentos.dart';
 import 'package:recat/PageView_dicas.dart';
 import 'package:recat/AgendarColeta_Pag1.dart';
+import 'package:recat/CatadorouMorador.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
@@ -83,6 +84,7 @@ final drawer = Drawer(
         title: Text("Sair"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
+          builder: (_) => CatadorOuMorador();
           // print("On Tap is fired");
         },
       ),

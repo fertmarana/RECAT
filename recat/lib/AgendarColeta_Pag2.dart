@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:recat/AgendamentoFeito.dart';
 int howManySelected = 0;
 
+
 class AgendarColeta_Pag2 extends StatefulWidget {
 
   @override
@@ -10,7 +11,8 @@ class AgendarColeta_Pag2 extends StatefulWidget {
 
 class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
   DateTime pickedDate;
-  TimeOfDay time;
+  TimeOfDay timeFirst;
+  TimeOfDay timeSecond;
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -18,7 +20,8 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
   void initState() {
     super.initState();
     pickedDate = DateTime.now();
-    time = TimeOfDay.now();
+    timeFirst = TimeOfDay.now();
+    timeSecond = TimeOfDay.now();
   }
 
   @override
@@ -54,6 +57,13 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
         alignment: Alignment(0.0,-1),
         child: Wrap(
           children: [
+            Container(
+              alignment: Alignment(-0.65,-0.9),
+              child: Text('Dia e Hora da Coleta ' ,
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 20.0, color: Colors.green),)
+              ,
+            ),
             Align(
             alignment: Alignment(0.0,-1),
           child: Container(
@@ -75,14 +85,27 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: <Widget>[
                                       ListTile(
-                                        title: Text("Date: ${pickedDate.year}, ${pickedDate.month}, ${pickedDate.day}"),
+                                        title: Text("Dia de Coleta: ${pickedDate.year}, ${pickedDate.month}, ${pickedDate.day}"),
                                         trailing: Icon(Icons.keyboard_arrow_down),
                                         onTap: _pickDate,
                                       ),
+                                      Container(
+                                        alignment: Alignment(-0.8,0),
+                                        child: Text('A coleta pode ser feita ' ,
+                                          textAlign: TextAlign.start,
+                                          style: TextStyle(fontSize: 15.0, color: Colors.black),)
+                                        ,
+                                      ),
+
                                       ListTile(
-                                        title: Text("Time: ${time.hour}:${time.minute}"),
+                                        title: Text("Das: ${timeFirst.hour}:${timeFirst.minute}"),
                                         trailing: Icon(Icons.keyboard_arrow_down),
-                                        onTap: _pickTime,
+                                        onTap: _pickTimeFirst,
+                                      ),
+                                      ListTile(
+                                        title: Text("às: ${timeSecond.hour}:${timeSecond.minute}"),
+                                        trailing: Icon(Icons.keyboard_arrow_down),
+                                        onTap: _pickTimeSecond,
                                       ),
                                     ],
                                   ),
@@ -92,6 +115,13 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
                   )
 
               )
+            ),
+            Container(
+              alignment: Alignment(-0.65,-0.9),
+              child: Text('Selecione uma Cooperativa/Catador' ,
+                textAlign: TextAlign.start,
+                style: TextStyle(fontSize: 20.0, color: Colors.green),)
+              ,
             ),
             Align(
                 alignment: Alignment(0.0,-1),
@@ -145,6 +175,8 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
 
     );
   }
+
+
   _pickDate() async {
     DateTime date = await showDatePicker(
       context: context,
@@ -161,18 +193,32 @@ class _AgendarColeta_Pag2 extends State<AgendarColeta_Pag2> {
         pickedDate = date;
       });
   }
-  _pickTime() async {
+  _pickTimeFirst() async {
+
     TimeOfDay t = await showTimePicker(
         context: context,
-        initialTime: time,
-
-
+        initialTime: timeFirst,
     );
     if(t != null)
       setState(() {
-        time = t;
+        timeFirst = t;
       });
   }
+
+  _pickTimeSecond() async {
+
+    TimeOfDay t = await showTimePicker(
+      context: context,
+      initialTime: timeFirst,
+    );
+    if(t != null)
+      setState(() {
+        timeSecond = t;
+      });
+  }
+
+
+
   bool _decideWhichDayToEnable(DateTime day) {
     if ((day.isAfter(DateTime.now().subtract(Duration(days: 1))) &&
         day.isBefore(DateTime.now().add(Duration(days: 10))))) {
@@ -256,4 +302,20 @@ class Cooperativas {
   bool isSelected;
 
   Cooperativas({this.name, this.isSelected = false});
+}
+
+
+Iterable<TimeOfDay> getTimes(TimeOfDay startTime, TimeOfDay endTime, Duration step) sync* {
+  var hour = startTime.hour;
+  var minute = startTime.minute;
+
+  do {
+    yield TimeOfDay(hour: hour, minute: minute);
+    minute += step.inMinutes;
+    while (minute >= 60) {
+      minute -= 60;
+      hour++;
+    }
+  } while (hour < endTime.hour ||
+      (hour == endTime.hour && minute <= endTime.minute));
 }

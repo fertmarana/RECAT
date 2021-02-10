@@ -7,7 +7,7 @@
         "enderecoColeta": "Avenida Getúlio Vargas 2-18",
         "cooperativa": "Cooperativa Recicla",
         "diaColeta": "11/02/2021",
-        "horaColeta": "14:00",
+        "horaColeta": "14:30",
         "tipoLixo": ["Plástico, Papel, Eletrônico"],
         "statusPedido": "aprovado",
         "statusColeta": "agendada"
@@ -15,21 +15,21 @@
       {
         "id": "9000000",
         "moradorNome": "Maria do Carmo",
-        "enderecoColeta": "Avenida Getúlio Vargas 2-18",
+        "enderecoColeta": "Rua Jacinto Favoreto 2-18",
         "cooperativa": "Cooperativa Recicla",
         "diaColeta": "11/02/2021",
-        "horaColeta": "14:00",
+        "horaColeta": "15:40",
         "tipoLixo": ["Plástico, Papel, Eletrônico"],
         "statusPedido": "aprovado",
         "statusColeta": "feita"
       },
   {
     "id": "9000000",
-    "moradorNome": "ANAAAA",
-    "enderecoColeta": "Rua Doze",
+    "moradorNome": "Ana Luiza Marques",
+    "enderecoColeta": "Rua Miranda Souze 19-18",
     "cooperativa": "Cooperativa Recicla",
     "diaColeta": "11/02/2021",
-    "horaColeta": "14:00",
+    "horaColeta": "16:10",
     "tipoLixo": ["Plástico, Papel, Eletrônico"],
     "statusPedido": "aprovado",
     "statusColeta": "cancelada"

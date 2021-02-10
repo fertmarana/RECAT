@@ -43,15 +43,14 @@ class _CentralPage_catadores extends State<CentralPage_catadores> {
 
       body:
       Container(
-      child: Align(
-      alignment: Alignment.center,
+        alignment: Alignment(0.0, 0.7),
       child: Wrap(
-        runSpacing: 4.0,
+        runSpacing: 2.0,
         direction: Axis.horizontal,
         children: [
           Container(
-            alignment: Alignment(-0.8, 1),
-            child: Text('Hoje',
+            alignment: Alignment(-0.7, 1),
+            child: Text('Hoje ( 05/02/2021 )',
               style: TextStyle(
                   fontSize: 30.0,
                   color: Color(0xff16613D)
@@ -59,7 +58,7 @@ class _CentralPage_catadores extends State<CentralPage_catadores> {
             ),
           ),
           Align(
-          alignment:  Alignment(0.0, 0.5),
+          alignment:  Alignment(0.0, 1),
           child: Container(
 
                     // Use future builder and DefaultAssetBundle to load the local JSON file
@@ -81,7 +80,7 @@ class _CentralPage_catadores extends State<CentralPage_catadores> {
 
       ),
     )
-      )
+
 
 
 
@@ -139,7 +138,7 @@ class _AgendamentoLista_catadores extends State<AgendamentoLista_catadores> {
 
     return  Container(
        // margin: EdgeInsets.fromLTRB(10, 0, 10, 0),
-        height: 600.0,
+        height: 550.0,
         width: 380,
         child: ListView.builder(
             //controller: controller,
@@ -217,10 +216,17 @@ class _AgendamentoLista_catadores extends State<AgendamentoLista_catadores> {
                               ),
                               Container(
                                   width: 500.0,
+                                  height: 30.0,
+                                  child:   Text('  Horário disponível: ' + ascoletas_carregadas.coletando[index].horaColeta,
+                                    textAlign: TextAlign.left,
+                                    style: TextStyle(fontSize: 20.0, color: Colors.black),)
+                              ),
+                              Container(
+                                  width: 500.0,
                                   height: 60.0,
                                 child: Align(
                                     alignment: Alignment(-0.70,-0.8),
-                                  child:   Text('Tipo de Lixo: ' + transformListintoString(ascoletas_carregadas.coletando[index].tipoLixo.toList()),
+                                  child:   Text('  Tipo de Lixo: ' + transformListintoString(ascoletas_carregadas.coletando[index].tipoLixo.toList()),
                                     textAlign: TextAlign.left,
                                     style: TextStyle(fontSize: 20.0, color: Colors.black),)
                                 )
@@ -241,7 +247,7 @@ class _AgendamentoLista_catadores extends State<AgendamentoLista_catadores> {
                                         onPressed: () {
                                           setState(() {
                                             backgroundColor[index] = Colors.green;
-                                            statusColetaAtual[index] = "coletada!";
+                                            statusColetaAtual[index] = "feita!";
                                           });
                                         },
                                         child: Text("Coletado",

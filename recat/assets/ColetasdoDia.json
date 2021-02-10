@@ -7,7 +7,7 @@
       "enderecoColeta": "Avenida Getúlio Vargas 2-18",
       "cooperativa": "Cooperativa Recicla",
       "diaColeta": "05/02/2021",
-      "horaColeta": "14:00",
+      "horaColeta": "Entre 15:00 a 17:00",
       "tipoLixo": ["Papel", "Eletrônico"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
@@ -18,7 +18,7 @@
       "enderecoColeta": "Santos Drummond 1809",
       "cooperativa": "Cooperativa Recicla",
       "diaColeta": "05/02/2021",
-      "horaColeta": "14:00",
+      "horaColeta": "Entre 15:00 a 16:00",
       "tipoLixo": ["Plástico", "Papel", "Vidro", "Eletrônico"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
@@ -28,8 +28,8 @@
       "moradorNome": "Rosana Santos",
       "enderecoColeta": "Rua Job Mendes 209",
       "cooperativa": "Cooperativa Recicla",
-      "diaColeta": "11/02/2021",
-      "horaColeta": "14:00",
+      "diaColeta": "05/02/2021",
+      "horaColeta": "Entre 13:00 a 15:00",
       "tipoLixo": ["Plástico"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
@@ -39,8 +39,8 @@
       "moradorNome": "Ana Carolina Marques",
       "enderecoColeta": "Rua Terezinha de Jesus 801",
       "cooperativa": "Cooperativa Recicla",
-      "diaColeta": "11/02/2021",
-      "horaColeta": "14:00",
+      "diaColeta": "05/02/2021",
+      "horaColeta": "Entre 13:00 a 15:00",
       "tipoLixo": ["Eletrônico"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
@@ -50,8 +50,8 @@
       "moradorNome": "Rosana Santos",
       "enderecoColeta": "Rua Lourdes Carrara 7102",
       "cooperativa": "Cooperativa Recicla",
-      "diaColeta": "11/02/2021",
-      "horaColeta": "14:00",
+      "diaColeta": "05/02/2021",
+      "horaColeta": "Entre 13:00 a 15:00",
       "tipoLixo": [ "Vidro", "Eletrônico"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
@@ -61,8 +61,8 @@
       "moradorNome": "David Souza",
       "enderecoColeta": "Rua Doze",
       "cooperativa": "Cooperativa Recicla",
-      "diaColeta": "11/02/2021",
-      "horaColeta": "14:00",
+      "diaColeta": "05/02/2021",
+      "horaColeta": "Entre 14:00 a 17:00",
       "tipoLixo": ["Plástico", "Papel"],
       "statusPedido": "aprovado",
       "statusColeta": "aprovado"
