@@ -2,6 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:math';
+
+// This Screen is not fully implemented yet but it was intented to show
+// the waste collection apointments of the residents.
+
 class agenda_morador extends StatefulWidget {
   @override
   _agenda_morador createState() => _agenda_morador();

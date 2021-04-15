@@ -57,12 +57,7 @@ class _PageView_dicas extends State<PageView_dicas> {
               ),
 
             ),
-            //onTap: () {
-            // Navigator.push(
-            //   context,
-            //  MaterialPageRoute(builder: (context) => Sugestions())
-            //);
-            //},
+
           ),
 
           Container(

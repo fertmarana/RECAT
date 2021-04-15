@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:recat/app_usuario_catadores/app_catadores.dart';
-import 'package:recat/app.dart';
+import 'package:recat/app_usuarios_moradores/app.dart';
 
 
 class CatadorOuMorador extends StatelessWidget {
-
+// This app is separated into 2 types: Scavenger and Residents
+// Since this is a prototype yet, this screen helps the developers to choose
+// with screen they want to see now
+// This will not exist in the final product
 
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +50,7 @@ class CatadorOuMorador extends StatelessWidget {
                           MaterialPageRoute(builder: (context) => App()),
                         );
                       },
-                      child: Image.asset('imagens/imagem_morador.png',
+                      child: Image.asset('imagens/imagem_catador.png',
                     fit: BoxFit.cover,)
                   ),
               )

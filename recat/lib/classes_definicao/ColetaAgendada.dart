@@ -1,8 +1,8 @@
-import 'package:firebase_database/firebase_database.dart';
+
 
 class Coletas {
   final List<ColetaAgendada> coletando;
-  DatabaseReference _id;
+
 
   Coletas({
     this.coletando,
@@ -24,9 +24,6 @@ class Coletas {
         return {'agendamentos': aaagenda };
    }
 
-   void setId(DatabaseReference id_data){
-    this._id = id_data;
-   }
 
 }
 

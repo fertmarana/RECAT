@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
 import 'dart:convert';
 import 'package:recat/app_usuario_catadores/display_agendamentosCard_Swipe_catadores.dart';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 
+// The Home Page of Scavengers would be a list of appointments they have for the current day
 
 class CentralPage_catadores extends StatefulWidget {
 
@@ -20,8 +21,7 @@ class _CentralPage_catadores extends State<CentralPage_catadores> {
 //CentralPage({Key key}) : super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
-  final List<String> entries = <String>['A', 'B', 'C'];
-  final List<int> colorCodes = <int>[600, 500, 100];
+  
 
 
   Coletas parseJosn(String response) {

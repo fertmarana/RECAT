@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 
+// Here the residents can check their data such as their waste collection history,
+// their registered adresses and their statistics.
+
 class minhaConta_morador extends StatelessWidget {
   final String morador;
   minhaConta_morador({Key key, this.morador}) : super(key: key);

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recat/CentralPage.dart';
+import 'package:recat/app_usuarios_moradores/CentralPage.dart';
 import 'dart:convert';
 
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
 
+// This screen shows the information on a specific waste collection appoitment
 
 class sobreAgendamento extends StatelessWidget {
  ColetaAgendada agendas;

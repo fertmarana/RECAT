@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:recat/app.dart';
-import 'package:recat/app_usuario_catadores/app_catadores.dart';
 import 'package:recat/CatadorouMorador.dart';
 import 'package:intl/date_symbol_data_local.dart';
-import 'app.dart';
+
+//Here the initialization starts and a bottom navigationbar is set
+// The first screen open for the Resident and the Scavegner is in the
+// files CentralPage.dart (for Resident) and CentralPage_catadores.dart (Scavegner)
 void main() {
   initializeDateFormatting().then((_) => runApp(MyApp()));
 }

@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
-import 'tabItem.dart';
+import '../tabItem.dart';
 import 'bottomNavigation.dart';
-import 'screens.dart';
-import 'package:recat/CentralPage.dart';
-import 'package:recat/apagardepois.dart';
-import 'package:recat/agenda_morador.dart';
-import 'package:recat/minhaConta_morador.dart';
-import 'package:recat/test_writeJson_apagardepois.dart';
+import 'package:recat/app_usuarios_moradores/CentralPage.dart';
+import 'package:recat/app_usuarios_moradores/agenda_morador.dart';
+import 'package:recat/app_usuarios_moradores/minhaConta_morador.dart';
+
 class App extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AppState();

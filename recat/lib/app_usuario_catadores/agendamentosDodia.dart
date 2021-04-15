@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
 import 'dart:convert';
 import 'package:recat/app_usuario_catadores/display_agendamentosCard_Swipe_catadores.dart';
 import 'package:recat/CatadorouMorador.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:async';
-import 'package:flutter_tindercard/flutter_tindercard.dart';
 
+// This app show in a CardSwipe style the appointments scheduled but not yet confirmed by the scavengers
+// In this screen the scavengers can choose to accept or refuse an appointment
 
 class agendamentosDia_catadores extends StatefulWidget {
 
@@ -23,7 +22,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
   );
 
 
-//CentralPage({Key key}) : super(key: key);
 
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
@@ -57,6 +55,9 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
               fontWeight: FontWeight.bold)),
     ),
   );
+
+  // In the app there is ⚙️ icon that opens a drawer with the following buttons:
+  // notifications, privacy, about the app, help and exit the app (they are not function).
   final drawer = Drawer(
     child: ListView(
       children: <Widget>[
@@ -65,7 +66,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           title: Text("Notificações"),
           trailing: Icon(Icons.arrow_forward),
           onTap: () {
-            // print("On Tap is fired");
           },
         ),
         ListTile(
@@ -73,7 +73,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           title: Text("Privacidade"),
           trailing: Icon(Icons.arrow_forward),
           onTap: () {
-            // print("On Tap is fired");
           },
         ),
         ListTile(
@@ -81,7 +80,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           title: Text("Sobre"),
           trailing: Icon(Icons.arrow_forward),
           onTap: () {
-            // print("On Tap is fired");
           },
         ),
         ListTile(
@@ -89,7 +87,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           title: Text("Ajuda"),
           trailing: Icon(Icons.arrow_forward),
           onTap: () {
-            // print("On Tap is fired");
           },
         ),
         ListTile(
@@ -100,7 +97,6 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
           onTap: () {
             builder: (_) => CatadorOuMorador();
 
-            // print("On Tap is fired");
           },
         ),
       ],
@@ -124,11 +120,7 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
         actions: <Widget>[
           IconButton(icon: Icon(Icons.settings, color: Color(0xff16613D)),
             onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
-            // onPressed: () {
-            // Navigator.push(
-            // context,
-            // MaterialPageRoute(builder: (context) => editperfil()),
-            //);},
+
           ),
         ],
       ),
@@ -166,49 +158,3 @@ class _agendamentosDia_catadores extends State<agendamentosDia_catadores> {
     );
   }
 }
-
-/*
-class StackOfCards extends StatelessWidget {
-  final int num;
-  final Widget child;
-  final double offset;
-
-  const StackOfCards({Key key, int num = 1, @required this.child, this.offset = 10.0})
-      : this.num = num > 0 ? num : 1,
-        assert(offset != null),
-        super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-        Positioned(
-            top: 30,
-            child: Draggable(
-              feedback:,
-              child: Card(),
-            )
-        )
-    );
-  }
-  /*Widget build(BuildContext context) => Stack(
-    children: List<Widget>.generate(
-        num - 1,
-            (val) => Positioned(
-            bottom: val * offset,
-            left: val * offset,
-            top: (num - val - 1) * offset,
-            right: (num - val - 1) * offset,
-            child: Card(child: Container(
-                width: 100,
-                height: 200.0)))).toList()
-      ..add(
-        Padding(
-          child: Card(child: child),
-          padding: EdgeInsets.only(bottom: (num - 1) * offset, left: (num - 1) * offset),
-        ),
-      ),
-  );
-
-   */
-}
-*/

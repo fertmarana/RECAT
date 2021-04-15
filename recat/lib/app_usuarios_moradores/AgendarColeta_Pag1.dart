@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
 import 'dart:convert';
-import 'package:recat/AgendarColeta_Pag2.dart';
+import 'package:recat/app_usuarios_moradores/AgendarColeta_Pag2.dart';
 import 'package:multi_select_item/multi_select_item.dart';
-import 'package:flutter/services.dart' show rootBundle;
-import 'dart:async';
+
 
 
 class AgendarColeta_Pag1 extends StatefulWidget {
@@ -48,13 +47,6 @@ class _AgendarColeta_Pag1 extends State<AgendarColeta_Pag1> {
           elevation: 0,
           backgroundColor: Colors.transparent,
           actions: <Widget>[
-            //IconButton(icon: Icon(Icons.person_outline, color: Color(0xff16613D)),
-              // onPressed: () {
-              // Navigator.push(
-              // context,
-              // MaterialPageRoute(builder: (context) => editperfil()),
-              //);},
-            //),
           ],
         ),
 

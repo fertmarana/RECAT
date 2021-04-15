@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:recat/app_usuario_catadores/bottomNavigation_catadores.dart';
 import 'package:recat/app_usuario_catadores/CentralPage_catadores.dart';
-import 'package:recat/agenda_morador.dart';
+import 'package:recat/app_usuarios_moradores/agenda_morador.dart';
 import 'package:recat/app_usuario_catadores/tabItem_catadores.dart';
-import 'package:recat/minhaConta_morador.dart';
+import 'package:recat/app_usuarios_moradores/minhaConta_morador.dart';
 import 'package:recat/app_usuario_catadores/agendamentosDodia.dart';
 
 class App_catadores extends StatefulWidget {

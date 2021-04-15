@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:recat/drawer_CentralPage.dart';
-import 'package:recat/ColetaAgendada.dart';
-import 'package:recat/display_agendamentos.dart';
-import 'package:recat/PageView_dicas.dart';
-import 'package:recat/AgendarColeta_Pag1.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
+import 'package:recat/app_usuarios_moradores/display_agendamentos.dart';
+import 'package:recat/app_usuarios_moradores/PageView_dicas.dart';
+import 'package:recat/app_usuarios_moradores/AgendarColeta_Pag1.dart';
 import 'package:recat/CatadorouMorador.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
-
-
+// Home Page for the Residents App
+// The first part they can see a few Tips to recycle
+// With the green button they can schedule a waste collection
+// The screens under the button show the schedules already done by the user
 
 class CentralPage extends StatefulWidget {
 _CentralPage createState() => _CentralPage();
@@ -43,6 +44,8 @@ final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   }
 
+// In the app there is ⚙️ icon that opens a drawer with the following buttons:
+// notifications, privacy, about the app, help and exit the app (they are not function).
 final drawer = Drawer(
   child: ListView(
     children: <Widget>[
@@ -51,7 +54,6 @@ final drawer = Drawer(
         title: Text("Notificações"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-         // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -59,7 +61,6 @@ final drawer = Drawer(
         title: Text("Privacidade"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -67,7 +68,6 @@ final drawer = Drawer(
         title: Text("Sobre"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -75,7 +75,6 @@ final drawer = Drawer(
         title: Text("Ajuda"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -85,7 +84,6 @@ final drawer = Drawer(
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
           builder: (_) => CatadorOuMorador();
-          // print("On Tap is fired");
         },
       ),
     ],
@@ -109,11 +107,6 @@ Widget build(BuildContext context) {
       actions: <Widget>[
         IconButton(icon: Icon(Icons.settings, color: Color(0xff16613D)),
           onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
-          // onPressed: () {
-          // Navigator.push(
-          // context,
-          // MaterialPageRoute(builder: (context) => editperfil()),
-          //);},
         ),
       ],
     ),
@@ -168,7 +161,6 @@ Widget build(BuildContext context) {
           ),
           Container(
             child: new Center(
-              // Use future builder and DefaultAssetBundle to load the local JSON file
               child: new FutureBuilder(
                   future: //loadAgendamento(),
                   DefaultAssetBundle.of(context).loadString('assets/Agendamento.json'),

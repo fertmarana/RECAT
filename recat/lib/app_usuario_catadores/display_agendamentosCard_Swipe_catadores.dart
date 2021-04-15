@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
 import 'package:flutter_tindercard/flutter_tindercard.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
