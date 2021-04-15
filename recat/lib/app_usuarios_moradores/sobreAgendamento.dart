@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:recat/CentralPage.dart';
+import 'package:recat/app_usuarios_moradores/CentralPage.dart';
 import 'dart:convert';
 
-import 'package:recat/ColetaAgendada.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
+
+// This screen shows the information on a specific waste collection appoitment
 
 class sobreAgendamento extends StatelessWidget {
-  final ColetaAgendada agendas;
+ ColetaAgendada agendas;
 
   sobreAgendamento({Key key, this.agendas}) : super(key: key);
 
@@ -25,6 +27,64 @@ String concatenateString(List<dynamic> lista){
     }
     else return Colors.red;
   }
+
+
+  final cancelarButon = Material(
+
+    borderRadius: BorderRadius.circular(30.0),
+
+
+    color: Colors.red,
+    child: MaterialButton(
+
+      minWidth: 200.0,
+      padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+      onPressed: () {},
+      child: Text("Cancelar Coleta",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+    ),
+  );
+  final editarColetaButon = Material(
+
+    borderRadius: BorderRadius.circular(30.0),
+
+
+    color: Colors.lightBlue,
+    child: MaterialButton(
+
+      minWidth: 200.0,
+      padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+      onPressed: () {},
+      child: Text("Editar Coleta",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+              fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+    ),
+  );
+
+
+ Widget _cancelarButton() {
+   return agendas.statusColeta == "agendada"
+       ? Container(
+       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+       width: 500.0,
+       height: 50.0,
+       child: cancelarButon)
+       : Container();
+ }
+ Widget _editarButton() {
+   return agendas.statusColeta == "agendada"
+       ?
+        Container(
+       padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+       width: 500.0,
+       height: 50.0,
+       child: editarColetaButon)
+       : Container();
+ }
+
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +118,7 @@ String concatenateString(List<dynamic> lista){
           child: Wrap(
 
           runSpacing: 2.0,
-          children: [
+          children: <Widget> [
             Align(
                 alignment: Alignment.topRight,
                 child:
@@ -112,14 +172,6 @@ String concatenateString(List<dynamic> lista){
 
                 ],
               ),
-            Container(
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                width: 500.0,
-                height: 50.0,
-                child:   Text('Morador: ' + agendas.moradorNome,
-                  textAlign: TextAlign.left,
-                  style: TextStyle(fontSize: 20.0, color: Colors.black),)
-            ),
               Container(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: 500.0,
@@ -128,6 +180,14 @@ String concatenateString(List<dynamic> lista){
                     textAlign: TextAlign.left,
                     style: TextStyle(fontSize: 20.0, color: Colors.black),)
               ),
+            Container(
+                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+                width: 500.0,
+                height: 50.0,
+                child:   Text('Horário: ' + agendas.horaColeta,
+                  textAlign: TextAlign.left,
+                  style: TextStyle(fontSize: 20.0, color: Colors.black),)
+            ),
               Container(
                   padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                   width: 500.0,
@@ -144,6 +204,35 @@ String concatenateString(List<dynamic> lista){
                   textAlign: TextAlign.left,
                   style: TextStyle(fontSize: 20.0, color: Colors.black),)
             ),
+            _editarButton(),
+            _cancelarButton(),
+            Container(
+              padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+              width: 500.0,
+              height: 50.0,
+              child: Material(
+
+                color: Colors.white,
+                child: MaterialButton(
+
+                  minWidth: 200.0,
+                  padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => CentralPage()),
+                    );
+                  },
+                  child: Text("Voltar a Página Inicial",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          fontSize: 20.0,color: Colors.black, fontWeight: FontWeight.bold)),
+                ),
+              ),
+            ),
+
+
+
 
         ]
        )
@@ -152,5 +241,8 @@ String concatenateString(List<dynamic> lista){
     )
     );
   }
+
+
+
 
 }

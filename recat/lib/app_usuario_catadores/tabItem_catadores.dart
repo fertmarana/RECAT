@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'app_usuarios_moradores/app.dart';
+import 'package:recat/app_usuario_catadores/app_catadores.dart';
 
 class TabItem {
   // you can customize what kind of information is needed

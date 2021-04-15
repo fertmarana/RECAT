@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
-import 'tabItem.dart';
-import 'bottomNavigation.dart';
-import 'screens.dart';
-import 'package:recat/CentralPage.dart';
-import 'package:recat/agenda_morador.dart';
-import 'package:recat/minhaConta_morador.dart';
-class App extends StatefulWidget {
+import 'package:recat/app_usuario_catadores/bottomNavigation_catadores.dart';
+import 'package:recat/app_usuario_catadores/CentralPage_catadores.dart';
+import 'package:recat/app_usuarios_moradores/agenda_morador.dart';
+import 'package:recat/app_usuario_catadores/tabItem_catadores.dart';
+import 'package:recat/app_usuarios_moradores/minhaConta_morador.dart';
+import 'package:recat/app_usuario_catadores/agendamentosDodia.dart';
+
+class App_catadores extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => AppState();
 }
 
-class AppState extends State<App> {
+class AppState extends State<App_catadores> {
   // this is static property so other widget throughout the app
   // can access it simply by AppState.currentTab
   static int currentTab = 0;
@@ -20,11 +21,16 @@ class AppState extends State<App> {
     TabItem(
       tabName: "Início",
       icon: Icons.home,
-      page: CentralPage(),
+      page: CentralPage_catadores(),
     ),
     TabItem(
-      tabName: "Minha Agenda",
-      icon: Icons.calendar_today,
+      tabName: "Pedidos de Coleta",
+      icon: Icons.inbox   ,
+      page: agendamentosDia_catadores(),
+    ),
+    TabItem(
+      tabName: "Locais de Coleta",
+      icon: Icons.map ,
       page: agenda_morador(),
     ),
     TabItem(

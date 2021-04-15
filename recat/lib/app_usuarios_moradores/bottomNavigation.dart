@@ -1,6 +1,6 @@
 import 'app.dart';
 import 'package:flutter/material.dart';
-import 'tabItem.dart';
+import '../tabItem.dart';
 
 class BottomNavigation extends StatelessWidget {
   BottomNavigation({

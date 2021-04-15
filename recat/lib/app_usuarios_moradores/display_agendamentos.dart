@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recat/ColetaAgendada.dart';
-import 'package:recat/sobreAgendamento.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
+import 'package:recat/app_usuarios_moradores/sobreAgendamento.dart';
 
 class AgendamentoLista extends StatelessWidget {
   final Coletas agenda;
@@ -31,10 +31,10 @@ MaterialColor checkStatusColeta (String statusColeta) {
 
     return new Container(
         alignment: Alignment.centerLeft,
-        margin: EdgeInsets.symmetric(vertical: 10.0),
-    height: 200.0,
-    width: 800,
-    child: PageView.builder(
+        margin: EdgeInsets.symmetric(vertical: 20.0),
+      height: 200.0,
+      width: 800,
+      child: PageView.builder(
       controller: controller,
       scrollDirection: Axis.horizontal,
       itemCount: agenda == null ? 0 : agenda.coletando.length, // Can be null

@@ -1,19 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:recat/drawer_CentralPage.dart';
-import 'package:recat/ColetaAgendada.dart';
-import 'package:recat/display_agendamentos.dart';
-import 'package:recat/PageView_dicas.dart';
+import 'package:recat/classes_definicao/ColetaAgendada.dart';
+import 'package:recat/app_usuarios_moradores/display_agendamentos.dart';
+import 'package:recat/app_usuarios_moradores/PageView_dicas.dart';
+import 'package:recat/app_usuarios_moradores/AgendarColeta_Pag1.dart';
+import 'package:recat/CatadorouMorador.dart';
 import 'dart:convert';
 import 'package:flutter/services.dart' show rootBundle;
 import 'dart:async';
-
-
+// Home Page for the Residents App
+// The first part they can see a few Tips to recycle
+// With the green button they can schedule a waste collection
+// The screens under the button show the schedules already done by the user
 
 class CentralPage extends StatefulWidget {
 _CentralPage createState() => _CentralPage();
 }
 
 class _CentralPage extends State<CentralPage>{
+
+  @override
+  void initState() {
+    // TODO: implement initState
+
+    super.initState();
+  }
 
 var controller = PageController(
   viewportFraction: 1 ,
@@ -34,24 +44,8 @@ final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   }
 
-final agendarButon = Material(
-
-  elevation: 10.0,
-  borderRadius: BorderRadius.circular(30.0),
-
-
-  color: Color(0xFF009E74),
-  child: MaterialButton(
-
-    minWidth: 200.0,
-    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
-    onPressed: () {},
-    child: Text("Agendar Coleta",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-            fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
-  ),
-);
+// In the app there is ⚙️ icon that opens a drawer with the following buttons:
+// notifications, privacy, about the app, help and exit the app (they are not function).
 final drawer = Drawer(
   child: ListView(
     children: <Widget>[
@@ -60,7 +54,6 @@ final drawer = Drawer(
         title: Text("Notificações"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-         // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -68,7 +61,6 @@ final drawer = Drawer(
         title: Text("Privacidade"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -76,7 +68,6 @@ final drawer = Drawer(
         title: Text("Sobre"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -84,7 +75,6 @@ final drawer = Drawer(
         title: Text("Ajuda"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
         },
       ),
       ListTile(
@@ -93,7 +83,7 @@ final drawer = Drawer(
         title: Text("Sair"),
         trailing: Icon(Icons.arrow_forward),
         onTap: (){
-          // print("On Tap is fired");
+          builder: (_) => CatadorOuMorador();
         },
       ),
     ],
@@ -117,20 +107,15 @@ Widget build(BuildContext context) {
       actions: <Widget>[
         IconButton(icon: Icon(Icons.settings, color: Color(0xff16613D)),
           onPressed: () => _scaffoldKey.currentState.openEndDrawer(),
-          // onPressed: () {
-          // Navigator.push(
-          // context,
-          // MaterialPageRoute(builder: (context) => editperfil()),
-          //);},
         ),
       ],
     ),
 
     body:  Container(
       child: Align(
-      alignment: Alignment.bottomCenter,
+      alignment: Alignment.topCenter,
       child: Wrap(
-        runSpacing: 8.0,
+        runSpacing: 6.0,
         direction: Axis.horizontal,
         children: [
           SizedBox(height: 10.0),
@@ -139,7 +124,29 @@ Widget build(BuildContext context) {
           Container(
               child: Align(
                 alignment: Alignment.center,
-                child: agendarButon,
+                child: Material(
+
+                  borderRadius: BorderRadius.circular(30.0),
+
+
+                  color: Color(0xFF009E74),
+                  child: MaterialButton(
+
+                    minWidth: 200.0,
+                    padding: EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 15.0),
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+
+                        MaterialPageRoute(builder: (context) => AgendarColeta_Pag1()),
+                      );
+                    },
+                    child: Text("Agendar Coleta",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                            fontSize: 20.0,color: Colors.white, fontWeight: FontWeight.bold)),
+                  ),
+                ),
 
               )
           ),
@@ -154,7 +161,6 @@ Widget build(BuildContext context) {
           ),
           Container(
             child: new Center(
-              // Use future builder and DefaultAssetBundle to load the local JSON file
               child: new FutureBuilder(
                   future: //loadAgendamento(),
                   DefaultAssetBundle.of(context).loadString('assets/Agendamento.json'),
